@@ -47,6 +47,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    
+
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
         if (lightbox.classList.contains('active')) {
