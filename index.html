@@ -1,79 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
-  
-    <title>JUST3D</title>
+    <title>JUST.3D</title>
 </head>
+
 <body>
-    <div class="mainheader">
+    <header id="Welcome" class="mainheader">
         <div class="header-overlay"></div>
-        <h1>JUST3D</h1>
-    </div>
-
-
-    <nav class="navbar">
-        <ul>
-            <li><a href="#home">Homes</a></li>
-            <li><a href="#Rings">Rings</a></li>
-            <li><a href="#Shirts">Shirts</a></li>
-            <li><a href="#Animation">Animation</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="Reviews">About</a></li>
-        </ul>
-    </nav>
-    <div class="gallery">
-        
-        <div class="gallery-item">
-            <img src="ring 1.jpg" class="gallery-img" alt="Ring">
+        <nav class="navbar">
+            <div class="logo">JUST.3D</div>
+            <span class="hamburger">&#9776;</span>
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="#Welcome" class="nav-link" data-section="home-section">Home</a></li>
+                    <li><a href="#products-section" class="nav-link" data-section="products-section">Products</a></li>
+                    <li><a href="#contact-section" class="nav-link" data-section="contact-section">Contact</a></li>
+                    <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+                </ul>
+                <a href="#contact-section" class="get-quote-btn">Get Quote</a>
+            </div>
+        </nav>
+        <div class="hero-content">
+            <h1>Crafting Champions<br><span>Since Day One</span></h1>
+            <p>Premium 3D-designed rings, shirts, cheque boards, and reviews built for winners who demand excellence.
+            </p>
+            <a href="#products-section" class="cta-button">View Our Products</a>
         </div>
+    </header>
 
-        <div class="gallery-item">
-            <img src="ring 2.jpg" class="gallery-img" alt="Ring">
+    <section id="products-section" class="content-section">
+        <div class="card-container">
+            <div class="card" data-category="rings">
+                <img src="Rings/ring 1.jpg" alt="Rings" class="card-img">
+                <h3>Rings</h3>
+            </div>
+            <div class="card" data-category="shirts">
+                <img src="Shirts/shirt1.jpg" alt="Shirts" class="card-img">
+                <h3>Shirts</h3>
+            </div>
+            <div class="card" data-category="cheque-boards">
+                <img src="Cheque Boards/card2.jpg"Cheque Boards" class="card-img">
+                <h3>Cheque Boards & Medals</h3>
+            </div>
+            <div class="card" data-category="reviews">
+                <img src="Reviews/Review1.jpg" alt="Reviews" class="card-img">
+                <h3>Reviews & Feedbacks</h3>
+            </div>
         </div>
+    </section>
 
-        <div class="gallery-item">
-            <img src="ring 3.jpg" class="gallery-img" alt="Ring">
+    <section id="contact-section" class="content-section contact-section">
+        <video autoplay muted loop playsinline class="contact-video">
+            <source src="vid1.mp4" type="video/mp4">
+            <source
+                src="https://assets.mixkit.co/videos/preview/mixkit-abstract-dark-background-with-particles-3228-large.webm"
+                type="video/webm">
+            Your browser does not support the video tag.
+        </video>
+        <div class="contact-overlay"></div>
+        <div id="contact">
+            <h2>Contact Information</h2>
+            <div class="contact-info">
+                <p><span>📞</span> Phone: (0933) 576-7993</p>
+                <p><span class="fa fa-facebook"></span> Facebook: <a href="https://www.facebook.com/just.3dofficial"
+                        target="_blank">JUST.3D</a></p>
+                <p><span>📧</span> Email: <a href="mailto:jc.designcenter@gmail.com">jc.designcenter@gmail.com</a></p>
+                <p><span>🌐</span> ArtStation: <a href="https://www.artstation.com/jastrid13"
+                        target="_blank">jastrid13</a></p>
+            </div>
         </div>
+    </section>
 
-        <div class="gallery-item">
-            <img src="ring4.jpg" class="gallery-img" alt="Ring">
+    <footer>
+        <div class="footer-content">
+            <div id="about" class="footer-section about-section">
+                <h3>About</h3>
+                <p>JUST.3D is dedicated to crafting premium 3D-designed championship rings and apparel that embody
+                    excellence and victory. Founded by passionate designers, we blend cutting-edge technology with bold
+                    creativity to deliver custom, high-quality products that celebrate your achievements.</p>
+            </div>
+            <div class="footer-right">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#Welcome">Home</a></li>
+                        <li><a href="#products-section">Products</a></li>
+                        <li><a href="#contact-section">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="#products-section">3D Rings</a></li>
+                        <li><a href="#products-section">3D Shirts</a></li>
+                        <li><a href="#products-section">3D Animations</a></li>
+                        <li><a href="#contact-section">Custom Orders</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
+        <p class="footer-bottom">© 2025 JUST.3D Studio. All rights reserved. Built for champions by champions.</p>
+    </footer>
 
-        <div class="gallery-item">
-            <img src="ring 5.jpg" class="gallery-img" alt="Ring">
-        </div>
-
-        <div class="gallery-item">
-            <img src="ring 6.jpg" class="gallery-img" alt="Ring">
-        </div>
-
-        <div class="gallery-item">
-            <img src="ring 7.jpg" class="gallery-img" alt="Ring">
-        </div>
-
-        <div class="gallery-item">
-            <img src="ring 8.jpg" class="gallery-img" alt="Ring">
-        </div>
-
-        <div class="gallery-item">
-            <img src="ring 9.jpg" class="gallery-img" alt="Ring">
-        </div>
-
-        <div class="gallery-item">
-            <img src="ring 10.jpg" class="gallery-img" alt="Ring">
-        </div>
-
-        
-
-        
-        
-       
-        
-    </div>
-    
     <div class="lightbox" id="lightbox">
         <span class="close-btn">&times;</span>
         <div class="lightbox-content">
@@ -83,6 +116,7 @@
         </div>
     </div>
 
-    <script src="index.js"></script>
+    <script src="Code.js"></script>
 </body>
+
 </html>

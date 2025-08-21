@@ -1,178 +1,560 @@
-html body{
-  background-color: #000000;
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
+html, body {
+    background-color: #000000;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+    height: 100%;
+    /* Custom scrollbar styles for WebKit browsers */
+    &::-webkit-scrollbar {
+        width: 12px;
+    }
+    &::-webkit-scrollbar-track {
+        background: #333333;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: #ffca28;
+        border-radius: 6px;
+        border: 2px solid #333333;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+        background-color: #ffb300;
+    }
+    /* Custom scrollbar styles for Firefox */
+    scrollbar-color: #ffca28 #333333;
+    scrollbar-width: thin;
 }
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  
-}
+
 .mainheader {
-  position: relative;
-  height: 300px;
-  width: 100vw;
-  margin-top: -20px;
-  margin-left: calc(-50vw + 50%);
-  background-image: url('coverpic.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 30px;
-  overflow: hidden;
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    background-image: url('coverpic.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding-top: 70px;
 }
 
 .header-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
-.mainheader h1 {
-  position: relative;
-  font-size: 4rem;
-  color: rgb(255, 255, 255);
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  text-shadow: 2px 2px 10px rgba(209, 179, 12, 0.6);
-  z-index: 1;
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+    max-width: 99.5vw; /* for scrollbar */
 }
 
+.logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+}
 
-/* Replace your current navbar styles with these */
 .navbar ul {
-  display: flex;
-  justify-content: center;
-  list-style-type: none;
-  margin: 0%;
-  padding: 0;
-  background-color: #ffffff00;
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    margin: 0 15px;
 }
 
 .navbar li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 16px;
-  text-decoration: none;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
 }
 
 .navbar li a:hover {
-  background-color: #b9b9b967;
+    color: #ffca28;
 }
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  margin-top: 30px;
+/*Added: Hamburger menu icon styles for mobile */
+.hamburger {
+    display: none;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1001;
 }
 
-.gallery-item {
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  aspect-ratio: 1/1;
+/* Added: Nav menu container for toggling visibility */
+.nav-menu {
+    display: flex;
+    align-items: center;
 }
 
-.gallery-item:hover {
-  transform: scale(1.03);
+/* Added: Active state for mobile nav menu */
+.nav-menu.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.gallery-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.get-quote-btn {
+    background-color: #ffca28;
+    color: #000;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-/* Lightbox styles */
+.get-quote-btn:hover {
+    background-color: #ffb300;
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 1;
+    padding: 20px;
+    margin-top: 60px;
+    margin-bottom: 200px;
+}
+
+.hero-content h1 {
+    font-size: 5.5rem;
+    margin-bottom: 10px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.hero-content h1 br + span {
+    color: #ffca28;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #ccc;
+}
+
+.cta-button {
+    background-color: #ffca28;
+    color: #000;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.cta-button:hover {
+    background-color: #ffb300;
+}
+
+.quote-input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    max-width: 200px;
+}
+
+.content-section {
+    min-height: 100vh;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden; /* Prevent content overflow */
+    display: flex; /* Always visible with flex */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Modified: For video background positioning */
+}
+
+.content-section.active {
+    display: flex; /* Use flex to center content */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-section {
+    width: 100vw; /* Full viewport width */
+    min-height: 100vh; /* Full viewport height */
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+    /* Optional: Uncomment for static image background instead of video */
+    background-image: url('coverpic.jpg'); 
+    /* background-size: cover; 
+    /* background-position: center; */
+    position: relative;
+    
+}
+
+.contact-video {
+    /* Modified: Ensured video visibility and proper scaling */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Scales to cover without distortion */
+    object-position: center; /* Centers the video */
+    z-index: 0;
+    opacity: 1; /* Added: Ensure video is visible */
+}
+
+.contact-overlay {
+    /* Modified: Adjusted opacity for better readability */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Increased opacity slightly */
+    z-index: 1;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-img {
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+}
+
+.card h3 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+    color: #ffca28;
+    text-align: center;
+    padding: 0 10px;
+}
+
+
+/* Added: Lightbox styles to ensure visibility and proper display */
 .lightbox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* Increased z-index to ensure lightbox is above navbar */
 }
 
 .lightbox.active {
-  opacity: 1;
-  pointer-events: all;
+    display: flex;
 }
 
 .lightbox-content {
-  position: relative;
-  max-width: 90%;
-  max-height: 90%;
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
 }
 
 .lightbox-img {
-  max-width: 100%;
-  max-height: 80vh;
-  display: block;
-  border-radius: 4px;
+    max-width: 100%;
+    max-height: 85vh;
+    object-fit: contain;
 }
 
 .close-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  color: white;
-  font-size: 30px;
-  cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
 }
 
-.prev-btn,
-.next-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  color: white;
-  font-size: 30px;
-  cursor: pointer;
-  background: rgba(0, 0, 0, 0.5);
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  border: none;
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.5rem;
 }
 
 .prev-btn {
-  left: 20px;
+    left: 10px;
 }
 
 .next-btn {
-  right: 20px;
+    right: 10px;
 }
 
+#about-contact-section {
+    flex-direction: column;
+    gap: 40px;
+}
+
+#about, #contact {
+    width: 100%;
+    text-align: center;
+}
+
+.contact-info {
+    /* Modified: Updated with user-provided glassmorphism styling, adjusted size */
+    padding: 22px; /* Modified: Reduced from 25px for slightly smaller size */
+    border-radius: 20px;
+    max-width: 320px; /* Modified: Reduced from 350px for slightly smaller container */
+    margin: 20px auto;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.21);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1), /* Modified: Fixed shadow color from (192, 13, 13, 0.1) */
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+        inset 0 0 12px 6px rgba(255, 255, 255, 0.6);
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.contact-info p {
+    /* Modified: Updated with user-provided styling, reduced size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 12px 0; /* Modified: Reduced from 15px for slightly smaller spacing */
+    font-size: 1.1rem; /* Modified: Reduced from 1.2rem for slightly smaller text */
+}
+
+.contact-info span {
+    /* Modified: Updated with user-provided styling, reduced size */
+    margin-right: 12px; /* Modified: Reduced from 15px for slightly smaller spacing */
+    color: #ffca28;
+    font-size: 1.3rem; /* Modified: Reduced from 1.4rem for slightly smaller icons */
+}
+
+.contact-info a {
+    /* Modified: Updated to match glassmorphism aesthetic */
+    color: #fff;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    /* Modified: Hover effect for consistency */
+    color: #ffca28;
+}
+
+footer {
+    background-color: #ffc928ac;
+    padding: 20px 20px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.footer-section.about-section {
+    /* Added: Styling to ensure About section aligns left */
+    flex: 1;
+    text-align: center;
+}
+
+.footer-right {
+    /* Added: Container for right-aligned Quick Links and Products */
+    display: flex;
+    gap: 20px;
+}
+
+.footer-section {
+    margin: 10px;
+}
+
+.footer-section h3 {
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 5px 0;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    color: #ffca28;
+}
+
+.social-icons span {
+    margin: 0 10px;
+    font-size: 1.2rem;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+/* Adjusted lightbox size for desktop */
+@media (min-width: 601px) {
+    .lightbox-content {
+        max-width: 90vw;
+        max-height: 90vh;
+    }
+}
+
+/* Media query for mobile responsiveness */
 @media (max-width: 600px) {
-  .gallery {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 10px;
-  }
+    .navbar {
+        /* Modified: Simplified to row for hamburger layout */
+        flex-direction: row;
+        padding: 10px 15px;
+        width: 100%;
+        max-width: 100vw;
+    }
+
+    /* Added: Show hamburger icon on mobile */
+    .hamburger {
+        display: block;
+    }
+
+    /* Added: Hide nav menu by default on mobile */
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    /* Added: Show nav menu when active */
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar li {
+        margin: 10px 0;
+    }
+
+    .get-quote-btn {
+        /* Modified: Styled for mobile menu */
+        margin: 10px 0;
+        width: 80%;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 10px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: left;
+    }
+
+    .content-section {
+        padding: 10px;
+        /* Modified: Ensure content isn’t hidden under navbar */
+        padding-top: 70px;
+    }
+
+    .contact-info {
+        max-width: 90%;
+        padding: 18px;
+        font-size: 1rem;
+    }
+
+    .contact-info span {
+        font-size: 1.2rem;
+    }
+
+    .contact-video {
+        object-fit: cover;
+        min-height: 100%;
+    }
 }
