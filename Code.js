@@ -21,37 +21,42 @@ document.addEventListener('DOMContentLoaded', function () {
     // Modified: Replaced imageCategories object with a single array of image objects
     // Each object contains a category and path, making it easier to add new images
     const images = [
-        { category: 'rings', path: 'Rings/ring 1.jpg' },
-        { category: 'rings', path: 'Rings/ring 2.jpg' },
-        { category: 'rings', path: 'Rings/ring 3.jpg' },
-        { category: 'rings', path: 'Rings/ring4.jpg' },
-        { category: 'rings', path: 'Rings/ring 5.jpg' },
-        { category: 'rings', path: 'Rings/ring 6.jpg' },
-        { category: 'rings', path: 'Rings/ring 7.jpg' },
-        { category: 'rings', path: 'Rings/ring 8.jpg' },
-        { category: 'rings', path: 'Rings/ring 9.jpg' },
-        { category: 'rings', path: 'Rings/ring 10.jpg' },
-        { category: 'rings', path: 'Rings/ring11.jpg' },
-        { category: 'rings', path: 'Rings/ring12.jpg' },
-        { category: 'rings', path: 'Rings/ring13.jpg' },
-        { category: 'rings', path: 'Rings/ring 14.jpg' },
-        { category: 'rings', path: 'Rings/ring15.jpg' },
-        { category: 'rings', path: 'Rings/ring16.jpg' },
-        { category: 'rings', path: 'Rings/ring17.jpg' },
-        { category: 'rings', path: 'Rings/ring18.jpg' },
-        { category: 'rings', path: 'Rings/ring19.jpg' },
-        { category: 'rings', path: 'Rings/ring20.jpg' },
-        { category: 'rings', path: 'Rings/ring21.jpg' },
-        { category: 'rings', path: 'Rings/ring22.jpg' },
-        { category: 'rings', path: 'Rings/ring23.jpg' },
-        { category: 'shirts', path: 'Shirts/shirt1.jpg' },
-        { category: 'shirts', path: 'Shirts/shirt 2.jpg' },
-        { category: 'cheque-boards', path: 'Cheque Boards/card1.jpg' },
-        { category: 'cheque-boards', path: 'Cheque Boards/card2.jpg' },
-        { category: 'cheque-boards', path: 'Cheque Boards/card3.jpg' },
-        { category: 'cheque-boards', path: 'Cheque Boards/Medal 1.jpg' },
-        { category: 'cheque-boards', path: 'Cheque Boards/Medal 2.jpg' },
-        { category: 'cheque-boards', path: 'Cheque Boards/medal3.jpg' },
+        { category: 'rings', path: 'Rings/ring_1.jpg' }, 
+        { category: 'rings', path: 'Rings/ring_2.jpg' },
+        { category: 'rings', path: 'Rings/ring_3.jpg' },
+        { category: 'rings', path: 'Rings/ring_4.jpg' },
+        { category: 'rings', path: 'Rings/ring_5.jpg' },
+        { category: 'rings', path: 'Rings/ring_6.jpg' },
+        { category: 'rings', path: 'Rings/ring_7.jpg' },
+        { category: 'rings', path: 'Rings/ring_8.jpg' },
+        { category: 'rings', path: 'Rings/ring_9.jpg' },
+        { category: 'rings', path: 'Rings/ring_10.jpg' },
+        { category: 'rings', path: 'Rings/ring_11.jpg' },
+        { category: 'rings', path: 'Rings/ring_12.jpg' },
+        { category: 'rings', path: 'Rings/ring_13.jpg' },
+        { category: 'rings', path: 'Rings/ring_14.jpg' },
+        { category: 'rings', path: 'Rings/ring_15.jpg' },
+        { category: 'rings', path: 'Rings/ring_16.jpg' },
+       
+        { category: 'shirts', path: 'Shirts/shirt_1.jpg' },
+        { category: 'shirts', path: 'Shirts/shirt_2.jpg' },
+        { category: 'shirts', path: 'Shirts/shirt_3.jpg' },
+        { category: 'shirts', path: 'Shirts/shirt_4.jpg' },
+        { category: 'shirts', path: 'Shirts/shirt_5.jpg' },
+        { category: 'shirts', path: 'Shirts/shirt_6.jpg' },
+
+        { category: 'cheque-boards', path: 'Cheque Boards/board_1.jpg' },
+        { category: 'cheque-boards', path: 'Cheque Boards/board_2.jpg' },
+        { category: 'cheque-boards', path: 'Cheque Boards/board_3.jpg' },
+        { category: 'cheque-boards', path: 'Cheque Boards/board_4.jpg' },
+        { category: 'cheque-boards', path: 'Cheque Boards/board_5.jpg' },
+
+        { category: 'cheque-boards', path: 'Cheque Boards/medal_1.jpg' },
+        { category: 'cheque-boards', path: 'Cheque Boards/medal_2.jpg' },
+        { category: 'cheque-boards', path: 'Cheque Boards/medal_3.jpg' },
+        { category: 'cheque-boards', path: 'Cheque Boards/medal_4.jpg' },
+        { category: 'cheque-boards', path: 'Cheque Boards/medal_5.jpg' },
+        
         { category: 'reviews', path: 'Reviews/Review1.jpg' },
         { category: 'reviews', path: 'Reviews/Review 2.jpg' },
         { category: 'reviews', path: 'Reviews/Review 5.jpg' },
@@ -65,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentCategory = 'rings';
     let currentImageIndex = 0;
 
-    // Navigation
+    
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
@@ -138,5 +143,38 @@ document.addEventListener('DOMContentLoaded', function () {
                 lightboxImg.src = categoryImages[currentImageIndex].path;
             }
         }
+    });
+
+    const productsSection = document.getElementById('products-section');
+    const defaultBg = 'url("products-default-bg.jpg")'; // Match your CSS default
+
+    cards.forEach(card => {
+        const bgImage = card.getAttribute('data-bg');
+        
+        card.addEventListener('mouseenter', () => {
+            if (bgImage) {
+                productsSection.style.backgroundImage = `url("${bgImage}")`;
+                productsSection.classList.add('hovered');
+            }
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            productsSection.style.backgroundImage = defaultBg;
+            productsSection.classList.remove('hovered');
+        });
+        
+        // For mobile/touch: Tap to preview bg (optional enhancement)
+        card.addEventListener('touchstart', () => {
+            if (bgImage) {
+                productsSection.style.backgroundImage = `url("${bgImage}")`;
+                productsSection.classList.add('hovered');
+            }
+        });
+        card.addEventListener('touchend', () => {
+            setTimeout(() => {
+                productsSection.style.backgroundImage = defaultBg;
+                productsSection.classList.remove('hovered');
+            }, 1000); // Holds bg for 1s after tap
+        });
     });
 });
